@@ -33,6 +33,7 @@ endif
 
 filetype plugin indent on
 
+" vimrcEx {{{
 augroup vimrcEx
   autocmd!
 
@@ -52,8 +53,20 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile tmux.conf.local set filetype=tmux
   autocmd BufRead,BufNewFile vimrc.local set filetype=vim
 augroup END
+" }}}
 
-" ALE linting events
+" Theme {{{
+colorscheme gruvbox
+set background=dark
+let g:gruvbox_bold = 1
+let g:gruvbox_italic = 1
+let g:gruvbox_underline = 1
+let g:gruvbox_undercurl = 1
+let g:gruvbox_termcolors = 256
+" let g:gruvbox_contrast_dark = 'light'
+" }}}
+
+" ALE linting events {{{
 augroup ale
   autocmd!
 
@@ -69,16 +82,18 @@ augroup ale
     echoerr "The thoughtbot dotfiles require NeoVim or Vim 8"
   endif
 augroup END
+" }}}
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
 
-" Softtabs, 2 spaces
+" Softtabs, 2 spaces {{{
 set tabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
+" }}}
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -108,7 +123,7 @@ set colorcolumn=+1
 set number
 set numberwidth=5
 
-" Tab completion
+" Tab completion {{{
 " will insert tab at beginning of line,
 " will use completion if not at beginning
 set wildmode=list:longest,list:full
@@ -122,22 +137,25 @@ function! InsertTabWrapper()
 endfunction
 inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
 inoremap <S-Tab> <C-n>
+" }}}
 
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 
-" Get off my lawn
+" Get off my lawn {{{
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+" }}}
 
-" vim-test mappings
+" vim-test mappings {{{
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <Leader>gt :TestVisit<CR>
+" }}}
 
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<Space>
@@ -152,11 +170,12 @@ set tags^=.git/tags
 set splitbelow
 set splitright
 
-" Quicker window movement
+" Quicker window movement {{{
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+" }}}
 
 " Move between linting errors
 nnoremap ]r :ALENextWrap<CR>
