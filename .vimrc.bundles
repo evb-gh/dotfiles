@@ -17,6 +17,14 @@ call plug#begin('~/.vim/bundle')
 " Define bundles via Github repos
 Plug 'christoomey/vim-run-interactive'
 
+" Some color schemes:
+Plug 'srcery-colors/srcery-vim'
+Plug 'morhetz/gruvbox'
+
+" Vim Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " If fzf has already been installed via Homebrew, use the existing fzf
 " Otherwise, install fzf. The `--all` flag makes fzf accessible outside of vim
 if isdirectory("/usr/local/opt/fzf")
@@ -44,13 +52,17 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/tComment'
+Plug 'junegunn/vim-journal'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 if g:has_async
   Plug 'dense-analysis/ale'
 endif
 
-if filereadable(expand("~/.vimrc.bundles.local"))
-  source ~/.vimrc.bundles.local
-endif
+" if filereadable(expand("~/.vimrc.bundles.local"))
+"   source ~/.vimrc.bundles.local
+" endif
 
 call plug#end()
