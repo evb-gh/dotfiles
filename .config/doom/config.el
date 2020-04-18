@@ -2,7 +2,7 @@
 
 ;; Place your private configuration here
 (toggle-frame-fullscreen)
-(setq doom-font (font-spec :family "Mononoki Nerd Font Mono" :size 16))
+(setq doom-font (font-spec :family "Mononoki Nerd Font Mono" :size 20))
 (setq doom-theme 'doom-gruvbox)
 (setq org-directory "~/Dropbox/org/")
 (setq current-logbook-filename "/Users/ebv/Dropbox/org/log/2020/2020-02-Feb.org")
