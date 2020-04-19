@@ -4,10 +4,10 @@
 (toggle-frame-fullscreen)
 (setq doom-font (font-spec :family "Mononoki Nerd Font Mono" :size 20))
 (setq doom-theme 'doom-gruvbox)
-(setq org-directory "~/Dropbox/org/")
-(setq current-logbook-filename "/Users/ebv/Dropbox/org/log/2020/2020-02-Feb.org")
-(setq anki-org-file "/Users/ebv/org/anki.org")
-(setq interview-org-file "/Users/ebv/org/interview.org")
+(setq org-directory "~/org/")
+(setq current-logbook-filename "~/org/log/2020/2020-02-Feb.org")
+(setq anki-org-file "~/org/anki.org")
+(setq interview-org-file "~/org/interview.org")
 (global-set-key (kbd "<f12>") 'org-agenda)
 
 ;;(after! org
