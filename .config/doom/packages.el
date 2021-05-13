@@ -7,4 +7,7 @@
 ;; (package! builtin-package :disable t)
 
 ;; (package! org-journal)
+;; (package! srcery-theme)
 (package! anki-editor)
+;; (package! vulpea)
+;; (package! spray)
