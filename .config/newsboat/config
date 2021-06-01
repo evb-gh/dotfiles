@@ -1,36 +1,32 @@
-# use old reader as the backend
-# urls-source "oldreader"
-# oldreader-login "ebv"
-# oldreader-password "phyla-mastiff-amour-ladylike-addenda"
-
-# only for OSX
-browser open
-
-# only for zsh users open in mpv with btpl func
-macro m set browser "iina "; open-in-browser ; set browser open
-
-# externel browser
-# browser "/usr/local/bin/w3m %u"
-# macro m set browser "/usr/local/bin/mpv %u"; open-in-browser ; set browser "/usr/local/bin/w3m %u"
-# macro l set browser "/usr/local/bin/firefox %u"; open-in-browser ; set browser "/usr/local/bin/w3m %u"
+# general settings
+auto-reload yes
+max-items 0
 
 
-# player          "mpv"
-# download-path   "~/downloads/%n"
-# save-path       "~/downloads"
+# browser         "xdg-open"
+browser         "open"
+player          "mpv"
+download-path   "~/Downloads/%n"
+save-path       "~/Downloads"
+reload-threads  20
+cleanup-on-quit yes
+text-width      74
 
 # unbind keys
-unbind-key ENTER
+#unbind-key ENTER
 unbind-key j
 unbind-key k
 unbind-key J
 unbind-key K
 
-# # bind keys - vim style
+# bind keys - vim style
 bind-key j down
 bind-key k up
 bind-key l open
 bind-key h quit
+
+
+macro y set browser "mpv %u"; open-in-browser ; set browser "open %u"
 
 # solarized
 color background         default   default
@@ -41,15 +37,3 @@ color listfocus_unread   black     cyan
 color info               default   black
 color article            default   default
 
-# srcery newsboat
-# https://github.com/roosta/vim-srcery
-
-# interface colors {{{
-
-# color info              color15 color8  bold
-# color listfocus         color10 color8
-# color listfocus_unread  color9  color8
-# color listnormal        color7  default
-# color listnormal_unread color15 default
-
-# }}}
