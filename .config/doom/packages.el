@@ -9,9 +9,8 @@
 ;; (package! org-journal)
 ;; (package! srcery-theme)
 (package! anki-editor)
-(package! elpher)
+;; (package! elpher)
+(package! git-auto-commit-mode)
 ;; (package! org-roam :recipe
 ;;   (:host github :repo "org-roam/org-roam" :branch "v2"))
-;; (package! vulpea :recipe
-;;   (:type git :host github :repo "d12frosted/vulpea"))
 ;; (package! spray)

@@ -49,12 +49,20 @@
 
 ;; Display battery indicator
 (display-battery-mode 1)
+(display-time-mode 1)
+
+;; git-auto-commit
+(setq gac-automatically-push-p 1)
+(setq gac-automatically-add-new-files-p 1)
+(setq gac-debounce-interval 60)
+
+(setq delete-by-moving-to-trash nil)
 
 ;; deft dir
 ;; (setq deft-directory "~/org/")
 
 ;; Set org-roam directory
-;; (setq org-roam-directory "~/roam")
+(setq org-roam-directory "~/roam")
 
 ;; Set F12 key to display og-agenda
 (global-set-key (kbd "<f12>") 'org-agenda)

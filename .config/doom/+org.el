@@ -1,14 +1,56 @@
 ;;; ~/.config/doom/+org.el -*- lexical-binding: t; -*-
 
 ;; (setq org-directory "~/Dropbox/org/")
-(setq current-logbook-filename "/Users/ebv/Dropbox/org/log/2020/2020-02-Feb.org")
+;; (setq current-logbook-filename "/Users/ebv/Dropbox/org/log/2020/2020-02-Feb.org")
 (setq anki-org-file "/Users/ebv/org/anki.org")
 (setq interview-org-file "/Users/ebv/org/interview.org")
 (setq general-anki-deck "/Users/ebv/org/general-anki-deck.org")
 (setq qa-anki-deck "/Users/ebv/org/qa-anki-deck.org")
+(setq trailhead "/Users/ebv/org/trailhead.org")
 
 (after! org
   (add-to-list 'org-modules 'org-habit)
+    (pushnew! org-capture-templates
+            ;; normally I construct current-logbook-filename using mix of expand-file-name and concat
+            ;; %i = selected text, %a org-store-link, %U created timestamp, %? place cursor here
+            '("a" "Anki Notes")
+            '("ag" "General Note")
+            '("agc" "General-Cloze-Note" entry (file+headline general-anki-deck "Pending")
+               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: General\n:ANKI_NOTE_TYPE: dev-cloze\n:END:\n** Text\n%x\n** Extra\n** Example\n** Link\n"
+               :empty-lines 1)
+            '("agg" "General-Note" entry (file+headline general-anki-deck "Pending")
+               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: General\n:ANKI_NOTE_TYPE: dev\n:END:\n** Front\n%?\n** Back\n%x** Example\n** Link\n"
+               :empty-lines 1)
+            '("ai" "Interview")
+            '("aic" "Interview-Cloze" entry (file+headline interview-org-file "Pending")
+               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: Interview\n:ANKI_NOTE_TYPE: dev-cloze\n:END:\n** Text\n%x\n** Extra\n** Example\n** Link\n"
+               :empty-lines 1)
+            '("aii" "Interview" entry (file+headline interview-org-file "Pending")
+               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: Interview\n:ANKI_NOTE_TYPE: dev\n:END:\n** Front\n%?\n** Back\n%x** Example\n** Link\n"
+               :empty-lines 1)
+            '("aq" "QA")
+            '("aqc" "QA-Cloze" entry (file+headline qa-anki-deck "Pending")
+               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: Root::QA\n:ANKI_NOTE_TYPE: dev-cloze\n:END:\n** Text\n%x\n** Extra\n** Example\n** Link\n"
+               :empty-lines 1)
+            '("aqq" "QA" entry (file+headline qa-anki-deck "Pending")
+               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: Root::QA\n:ANKI_NOTE_TYPE: dev\n:END:\n** Front\n%?\n** Back\n%x** Example\n** Link\n"
+               :empty-lines 1)
+            '("as" "SPDI")
+            '("asc" "SPDI-Cloze" entry (file+headline trailhead "Pending")
+               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: SPDI\n:ANKI_NOTE_TYPE: dev-cloze\n:END:\n** Text\n%x\n** Extra\n** Link\n"
+               :empty-lines 1)
+            '("ass" "SPDI" entry (file+headline trailhead "Pending")
+               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: SPDI\n:ANKI_NOTE_TYPE: dev\n:END:\n** Front\n%?\n** Back\n%x** Extra\n** Link\n"
+               :empty-lines 1)))
+
+
+
+
+
+
+
+
+
   ;; (pushnew! org-capture-templates
   ;;           ;; normally I construct current-logbook-filename using mix of expand-file-name and concat
   ;;           ;; %i = selected text, %a org-store-link, %U created timestamp, %? place cursor here
@@ -42,28 +84,3 @@
   ;;           '("ii" "Interview" entry (file+headline interview-org-file "Pending")
   ;;              "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: Interview\n:ANKI_NOTE_TYPE: interview\n:END:\n** Front\n%?\n** Back\n%x** Example\n** Link\n"
   ;;              :empty-lines 1))
-  (pushnew! org-capture-templates
-            ;; normally I construct current-logbook-filename using mix of expand-file-name and concat
-            ;; %i = selected text, %a org-store-link, %U created timestamp, %? place cursor here
-            '("a" "Anki Notes")
-            '("ag" "General Note")
-            '("agc" "General-Cloze-Note" entry (file+headline general-anki-deck "Pending")
-               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: General\n:ANKI_NOTE_TYPE: dev-cloze\n:END:\n** Text\n%x\n** Extra\n** Example\n** Link\n"
-               :empty-lines 1)
-            '("agg" "General-Note" entry (file+headline general-anki-deck "Pending")
-               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: General\n:ANKI_NOTE_TYPE: dev\n:END:\n** Front\n%?\n** Back\n%x** Example\n** Link\n"
-               :empty-lines 1)
-            '("ai" "Interview")
-            '("aic" "Interview-Cloze" entry (file+headline interview-org-file "Pending")
-               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: Interview\n:ANKI_NOTE_TYPE: dev-cloze\n:END:\n** Text\n%x\n** Extra\n** Example\n** Link\n"
-               :empty-lines 1)
-            '("aii" "Interview" entry (file+headline interview-org-file "Pending")
-               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: Interview\n:ANKI_NOTE_TYPE: dev\n:END:\n** Front\n%?\n** Back\n%x** Example\n** Link\n"
-               :empty-lines 1)
-            '("aq" "QA")
-            '("aqc" "QA-Cloze" entry (file+headline qa-anki-deck "Pending")
-               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: Root::QA\n:ANKI_NOTE_TYPE: dev-cloze\n:END:\n** Text\n%x\n** Extra\n** Example\n** Link\n"
-               :empty-lines 1)
-            '("aqq" "QA" entry (file+headline qa-anki-deck "Pending")
-               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: Root::QA\n:ANKI_NOTE_TYPE: dev\n:END:\n** Front\n%?\n** Back\n%x** Example\n** Link\n"
-               :empty-lines 1)))
