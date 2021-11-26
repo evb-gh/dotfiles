@@ -3,16 +3,17 @@
 
 # macOS stuff
 # alias wifi='networksetup -setairportpower en0'
-alias v='nvim'
-alias vi='$HOME/src/nvim-osx64/bin/nvim'
+
+# dotfiles bare repo
+alias config='/usr/bin/git --git-dir=/Users/ebv/.cfg/ --work-tree=/Users/ebv'
 
 # command to control dotfiles git repository
-alias dotgit='/usr/bin/git --git-dir=/Users/ebv/.cfg/ --work-tree=/Users/ebv'
+alias dots='/usr/bin/git --git-dir=/Users/ebv/.cfg/ --work-tree=/Users/ebv'
 
 # alias rpi='ssh pi@192.168.1.100'
 # alias rpi='mosh pi@192.168.1.100'
 # alias router='ssh root@192.168.1.1'
-# alias dsm='ssh -p32 evb@michtob.synology.me'
+alias dsm='ssh  evb@michtob.synology.me -p32'
 # alias ghost='mosh root@157.230.19.54'
 
 # Changing "ls" to "exa"
@@ -30,18 +31,19 @@ alias yboat='newsboat -u ~/.config/newsboat/yt/yturls -c ~/.config/newsboat/yt/y
 
 # youtube
 # alias yta='youtube-dl -4icvwxo "%(title)s.%(ext)s" --audio-format mp3 --audio-quality 0 --netrc "$(pbpaste)"'
-alias yta='youtube-dl -4icvwxo "%(title)s.%(ext)s" --audio-format mp3 --audio-quality 0 "$(pbpaste)"'
-alias ytvm='youtube-dl -4icvwo "%(playlist_index)s.%(title)s.%(ext)s" --playlist-reverse "$(pbpaste)"'
+alias yta='yt-dlp -4icvwxo "%(title)s.%(ext)s" --audio-format mp3 --audio-quality 0 "$(pbpaste)"'
+alias ytv='yt-dlp -4icvwo "%(title)s.%(ext)s" --netrc "$(pbpaste)"'
+alias ytvm='yt-dlp -4icvwo "%(playlist_index)s.%(title)s.%(ext)s" --playlist-reverse "$(pbpaste)"'
 # alias yt='docker run --rm -u $(id -u):$(id -g) -v $PWD:/data vimagick/youtube-dl'
 alias yt='/Users/ebv/src/ytfzf/ytfzf'
 
-alias tsm='transmission-remote michtob.synology.me -n ebv:umber-haughty-revile-kitty'
+# alias tsm='transmission-remote michtob.synology.me -n ebv:umber-haughty-revile-kitty'
 
 # sync rpi with laptop
 alias srpi='rsync-update -e ssh pi@192.168.1.100:/media/thdd/rpi/drop/ /Users/ebv/Downloads/rpi/'
 
 # ssh into onyx
-alias onyx='ssh -p 8022 root@192.168.1.122'
+# alias onyx='ssh -p 8022 root@192.168.1.122'
 
 # cd into exrecism folder
 #alias exercism='cd /Users/ebv/src/dcp/Exercism'
