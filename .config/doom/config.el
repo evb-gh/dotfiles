@@ -24,7 +24,7 @@
 ;; (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 15 :style "Retina"))
 ;;      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font" :size 16 :style "Retina"))
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16)
-      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 16))
+      doom-variable-pitch-font (font-spec :family "Inter" :size 16))
 
 
 ;; (setq doom-font (font-spec :family "Mononoki Nerd Font Mono" :size 16)
@@ -52,12 +52,13 @@
 (display-time-mode 1)
 
 ;; git-auto-commit
-(setq gac-automatically-push-p 1)
+;; (setq gac-automatically-push-p 1)
 (setq gac-automatically-add-new-files-p 1)
-(setq gac-debounce-interval 60)
+;; (setq gac-debounce-interval 60)
 
 (setq delete-by-moving-to-trash nil)
 
+(setq org-use-property-inheritance t)
 ;; deft dir
 ;; (setq deft-directory "~/org/")
 
@@ -67,9 +68,20 @@
 ;; Set F12 key to display og-agenda
 (global-set-key (kbd "<f12>") 'org-agenda)
 
-(setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$") )
+(setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
 
 (setq projectile-project-search-path '("~/src/"))
+
+;; from https://discourse.doomemacs.org/t/tree-sitter/2547/5
+(use-package! tree-sitter
+   :hook (prog-mode . turn-on-tree-sitter-mode)
+   :hook (tree-sitter-after-on . tree-sitter-hl-mode)
+   :config
+   (require 'tree-sitter-langs)
+   ;; This makes every node a link to a section of code
+   (setq tree-sitter-debug-jump-buttons t
+         ;; and this highlights the entire sub tree in your code
+         tree-sitter-debug-highlight-jump-region t))
 
 ;;(setq spray-wpm 165
 ;;      spray-height 700)
@@ -77,7 +89,7 @@
 ;; TODO decited if you need a diary file
 ;; (setq diary-file "~/lbry/dates.org")
 
-(load! "+org.el")
+;; (load! "+org.el")
 (load! "+anki.el")
 (load! "+mu4e.el")
 

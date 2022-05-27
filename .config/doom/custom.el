@@ -19,6 +19,8 @@
    '(("bal" "%(binary) -f %(ledger-file) bal")
      ("reg" "%(binary) -f %(ledger-file) reg")
      ("current" "%(binary) -f %(ledger-file) bal -I --period %(month)")
+     ("this week" "%(binary) -f %(ledger-file) bal -I --start-of-week=1 --period 'this week'")
+     ("last week" "%(binary) -f %(ledger-file) bal -I --start-of-week=1 --period 'last week'")
      ("diff" "%(binary) -f %(ledger-file) bal --period %(month) ^income ^expenses")
      ("payee" "%(binary) -f %(ledger-file) reg @%(payee)")
      ("account" "%(binary) -f %(ledger-file) reg %(account)")))

@@ -16,10 +16,10 @@
             '("a" "Anki Notes")
             '("ag" "General Note")
             '("agc" "General-Cloze-Note" entry (file+headline general-anki-deck "Pending")
-               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: General\n:ANKI_NOTE_TYPE: dev-cloze\n:END:\n** Text\n%x\n** Extra\n** Example\n** Link\n"
+               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: General\n:ANKI_NOTE_TYPE: dev-cloze\n:END:\n** Text\n%x\n** More\n** Link\n"
                :empty-lines 1)
             '("agg" "General-Note" entry (file+headline general-anki-deck "Pending")
-               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: General\n:ANKI_NOTE_TYPE: dev\n:END:\n** Front\n%?\n** Back\n%x** Example\n** Link\n"
+               "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: General\n:ANKI_NOTE_TYPE: dev\n:END:\n** Front\n%?\n** Back\n%x** More\n** Link\n"
                :empty-lines 1)
             '("ai" "Interview")
             '("aic" "Interview-Cloze" entry (file+headline interview-org-file "Pending")
@@ -41,8 +41,16 @@
                :empty-lines 1)
             '("ass" "SPDI" entry (file+headline trailhead "Pending")
                "* %<%H:%M> %^g\n:PROPERTIES:\n:ANKI_DECK: SPDI\n:ANKI_NOTE_TYPE: dev\n:END:\n** Front\n%?\n** Back\n%x** Extra\n** Link\n"
-               :empty-lines 1)))
+               :empty-lines 1)
+            ))
 
+;; ledger-cli capture template
+;; '("t" "ledger transaction" plain (file "~/lbry/text/ledger/2022-moving.ledger")
+;;             "%(org-read-date) %^{Description}
+;;             %^{Category|moving:hours|(moving:tips)|moving:miles|}    %^{Amount}
+;;             %^{Category|moving:hours|(moving:tips)|moving:miles|}    %^{Amount}
+;;             %^{Asset/liability account|assets:cash|income:recivable:vova}"
+;;             :empty-lines 1)
 
 
 

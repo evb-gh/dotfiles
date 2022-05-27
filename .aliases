@@ -10,6 +10,10 @@ alias config='/usr/bin/git --git-dir=/Users/ebv/.cfg/ --work-tree=/Users/ebv'
 # command to control dotfiles git repository
 alias dots='/usr/bin/git --git-dir=/Users/ebv/.cfg/ --work-tree=/Users/ebv'
 
+# run vim with .config/vim/.vimrc
+alias vim='vim -u /Users/ebv/.config/vim/junegunn.vimrc'
+alias vimrc='nvim /Users/ebv/.config/vim/.vimrc'
+
 # alias rpi='ssh pi@192.168.1.100'
 # alias rpi='mosh pi@192.168.1.100'
 # alias router='ssh root@192.168.1.1'

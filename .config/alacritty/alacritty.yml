@@ -4,13 +4,15 @@
 # environment variables. Some entries may override variables
 # set by alacritty itself.
 #env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
-  #TERM: xterm-256color
+# TERM variable
+# env:
+#   TERM: xterm-256color-italic  # adding this because of italic support: https://apple.stackexchange.com/questions/266333/how-to-show-italic-in-vim-in-iterm2
+#
+# This value is used to set the `$TERM` environment variable for
+# each instance of Alacritty. If it is not present, alacritty will
+# check the local terminfo database and use `alacritty` if it is
+# available, otherwise `xterm-256color` is used.
+#TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -67,10 +69,10 @@ window:
 
   # Window class (Linux/BSD only):
   #class:
-    # Application instance name
-    #instance: Alacritty
-    # General application class
-    #general: Alacritty
+  # Application instance name
+  #instance: Alacritty
+  # General application class
+  #general: Alacritty
 
   # GTK theme variant (Linux/BSD only)
   #
@@ -109,7 +111,6 @@ font:
     #family: monospace
     family: mononoki Nerd Font Mono
 
-
     # The `style` can be specified to pick a specific face.
     style: Regular
 
@@ -121,7 +122,6 @@ font:
     # value specified for the normal font.
     #family: monospace
     family: mononoki Nerd Font Mono
-
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -140,14 +140,14 @@ font:
 
   # Bold italic font face
   #bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
+  # Font family
+  #
+  # If the bold italic family is not specified, it will fall back to the
+  # value specified for the normal font.
+  #family: monospace
 
-    # The `style` can be specified to pick a specific face.
-    #style: Bold Italic
+  # The `style` can be specified to pick a specific face.
+  #style: Bold Italic
 
   # Point size
   size: 18.0
@@ -179,120 +179,214 @@ font:
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
-  #use_thin_strokes: true
+  use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
 # Color schemes
+
 # Colors (Gruvbox dark)
 colors:
-  # Default colors
   primary:
-    # hard contrast: background = '0x1d2021'
-    background: '0x282828'
-    # soft contrast: background = '0x32302f'
-    foreground: '0xebdbb2'
-
-  # Normal colors
-  normal:
-    black:   '0x282828'
-    red:     '0xcc241d'
-    green:   '0x98971a'
-    yellow:  '0xd79921'
-    blue:    '0x458588'
-    magenta: '0xb16286'
-    cyan:    '0x689d6a'
-    white:   '0xa89984'
-
-  # Bright colors
+    # hard contrast background - '#1d2021'
+    background: &gruvbox_dark_bg "#282828"
+    # soft contrast background - '#32302f'
+    foreground: "#ebdbb2"
+    bright_foreground: "#fbf1c7"
+    dim_foreground: "#a89984"
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
+  # search:
+  #   matches:
+  #     foreground: '#000000'
+  #     background: '#ffffff'
+  #   focused_match:
+  #    foreground: CellBackground
+  #    background: CellForeground
+  #   bar:
+  #     background: ''
+  #     foreground: ''
+  # line_indicator:
+  #   foreground: None
+  #   background: None
+  selection:
+    text: CellBackground
+    background: CellForeground
   bright:
-    black:   '0x928374'
-    red:     '0xfb4934'
-    green:   '0xb8bb26'
-    yellow:  '0xfabd2f'
-    blue:    '0x83a598'
-    magenta: '0xd3869b'
-    cyan:    '0x8ec07c'
-    white:   '0xebdbb2'
+    black: "#928374"
+    red: "#fb4934"
+    green: "#b8bb26"
+    yellow: "#fabd2f"
+    blue: "#83a598"
+    magenta: "#d3869b"
+    cyan: "#8ec07c"
+    white: "#ebdbb2"
+  normal:
+    black: *gruvbox_dark_bg
+    red: "#cc241d"
+    green: "#98971a"
+    yellow: "#d79921"
+    blue: "#458588"
+    magenta: "#b16286"
+    cyan: "#689d6a"
+    white: "#a89984"
+  dim:
+    black: "#32302f"
+    red: "#9d0006"
+    green: "#79740e"
+    yellow: "#b57614"
+    blue: "#076678"
+    magenta: "#8f3f71"
+    cyan: "#427b58"
+    white: "#928374"
+  # indexed_colors: []
+
+# TokyoNight Alacritty Colors
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x24283b'
+#     foreground: '0xc0caf5'
+#
+#   # Normal colors
+#   normal:
+#     black:   '0x1D202F'
+#     red:     '0xf7768e'
+#     green:   '0x9ece6a'
+#     yellow:  '0xe0af68'
+#     blue:    '0x7aa2f7'
+#     magenta: '0xbb9af7'
+#     cyan:    '0x7dcfff'
+#     white:   '0xa9b1d6'
+#
+#   # Bright colors
+#   bright:
+#     black:   '0x414868'
+#     red:     '0xf7768e'
+#     green:   '0x9ece6a'
+#     yellow:  '0xe0af68'
+#     blue:    '0x7aa2f7'
+#     magenta: '0xbb9af7'
+#     cyan:    '0x7dcfff'
+#     white:   '0xc0caf5'
+#
+#   indexed_colors:
+#     - { index: 16, color: '0xff9e64' }
+#     - { index: 17, color: '0xdb4b4b' }
+
+# Colors (Gruvbox dark)
+# colors:
+#   # Default colors
+#   primary:
+#     # hard contrast: background = '0x1d2021'
+#     background: '0x282828'
+#     # soft contrast: background = '0x32302f'
+#     foreground: '0xebdbb2'
+#
+#   # Normal colors
+#   normal:
+#     black:   '0x282828'
+#     red:     '0xcc241d'
+#     green:   '0x98971a'
+#     yellow:  '0xd79921'
+#     blue:    '0x458588'
+#     magenta: '0xb16286'
+#     cyan:    '0x689d6a'
+#     white:   '0xa89984'
+#
+#   # Bright colors
+#   bright:
+#     black:   '0x928374'
+#     red:     '0xfb4934'
+#     green:   '0xb8bb26'
+#     yellow:  '0xfabd2f'
+#     blue:    '0x83a598'
+#     magenta: '0xd3869b'
+#     cyan:    '0x8ec07c'
+#     white:   '0xebdbb2'
 
 # Colors (Tomorrow Night Bright)
 #colors:
-  # Default colors
-  #primary:
-  #  background: '0x000000'
-  #  foreground: '0xeaeaea'
+# Default colors
+#primary:
+#  background: '0x000000'
+#  foreground: '0xeaeaea'
 
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not present.
-    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
-    # is `false`, the normal foreground color will be used.
-    #dim_foreground: '0x9a9a9a'
-    #bright_foreground: '0xffffff'
+# Bright and dim foreground colors
+#
+# The dimmed foreground color is calculated automatically if it is not present.
+# If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+# is `false`, the normal foreground color will be used.
+#dim_foreground: '0x9a9a9a'
+#bright_foreground: '0xffffff'
 
-  # Cursor colors
-  #
-  # Colors which should be used to draw the terminal cursor. If these are unset,
-  # the cursor color will be the inverse of the cell color.
-  #cursor:
-  #  text: '0x000000'
-  #  cursor: '0xffffff'
+# Cursor colors
+#
+# Colors which should be used to draw the terminal cursor. If these are unset,
+# the cursor color will be the inverse of the cell color.
+#cursor:
+#  text: '0x000000'
+#  cursor: '0xffffff'
 
-  # Selection colors
-  #
-  # Colors which should be used to draw the selection area. If selection
-  # background is unset, selection color will be the inverse of the cell colors.
-  # If only text is unset the cell text color will remain the same.
-  #selection:
-  #  text: '0xeaeaea'
-  #  background: '0x404040'
+# Selection colors
+#
+# Colors which should be used to draw the selection area. If selection
+# background is unset, selection color will be the inverse of the cell colors.
+# If only text is unset the cell text color will remain the same.
+#selection:
+#  text: '0xeaeaea'
+#  background: '0x404040'
 
-  # Normal colors
-  #normal:
-  #  black:   '0x000000'
-  #  red:     '0xd54e53'
-  #  green:   '0xb9ca4a'
-  #  yellow:  '0xe6c547'
-  #  blue:    '0x7aa6da'
-  #  magenta: '0xc397d8'
-  #  cyan:    '0x70c0ba'
-  #  white:   '0xeaeaea'
+# Normal colors
+#normal:
+#  black:   '0x000000'
+#  red:     '0xd54e53'
+#  green:   '0xb9ca4a'
+#  yellow:  '0xe6c547'
+#  blue:    '0x7aa6da'
+#  magenta: '0xc397d8'
+#  cyan:    '0x70c0ba'
+#  white:   '0xeaeaea'
 
-  # Bright colors
-  #bright:
-  #  black:   '0x666666'
-  #  red:     '0xff3334'
-  #  green:   '0x9ec400'
-  #  yellow:  '0xe7c547'
-  #  blue:    '0x7aa6da'
-  #  magenta: '0xb77ee0'
-  #  cyan:    '0x54ced6'
-  #  white:   '0xffffff'
+# Bright colors
+#bright:
+#  black:   '0x666666'
+#  red:     '0xff3334'
+#  green:   '0x9ec400'
+#  yellow:  '0xe7c547'
+#  blue:    '0x7aa6da'
+#  magenta: '0xb77ee0'
+#  cyan:    '0x54ced6'
+#  white:   '0xffffff'
 
-  # Dim colors
-  #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
-  #dim:
-  #  black:   '0x000000'
-  #  red:     '0x8c3336'
-  #  green:   '0x7a8530'
-  #  yellow:  '0x97822e'
-  #  blue:    '0x506d8f'
-  #  magenta: '0x80638e'
-  #  cyan:    '0x497e7a'
-  #  white:   '0x9a9a9a'
+# Dim colors
+#
+# If the dim colors are not set, they will be calculated automatically based
+# on the `normal` colors.
+#dim:
+#  black:   '0x000000'
+#  red:     '0x8c3336'
+#  green:   '0x7a8530'
+#  yellow:  '0x97822e'
+#  blue:    '0x506d8f'
+#  magenta: '0x80638e'
+#  cyan:    '0x497e7a'
+#  white:   '0x9a9a9a'
 
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '0xff00ff' }`
-  #
-  #indexed_colors: []
+# Indexed Colors
+#
+# The indexed colors include all colors from 16 to 256.
+# When these are not set, they're filled with sensible defaults.
+#
+# Example:
+#   `- { index: 16, color: '0xff00ff' }`
+#
+#indexed_colors: []
 
 # Colors (Srcery)
 # colors:
@@ -300,7 +394,7 @@ colors:
 #   primary:
 #     background: '0x1c1b19'
 #     foreground: '0xfce8c3'
-# 
+#
 #   # Normal colors
 #   normal:
 #     black:   '0x1c1b19'
@@ -311,7 +405,7 @@ colors:
 #     magenta: '0xe02c6d'
 #     cyan:    '0x0aaeb3'
 #     white:   '0xd0bfa1'
-# 
+#
 #   # Bright colors
 #   bright:
 #     black:   '0x918175'
@@ -356,26 +450,26 @@ colors:
 #background_opacity: 1.0
 
 #selection:
-  #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+#semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
-  # When set to `true`, selected text will be copied to the primary clipboard.
-  #save_to_clipboard: false
+# When set to `true`, selected text will be copied to the primary clipboard.
+#save_to_clipboard: false
 
 # Allow terminal applications to change Alacritty's window title.
 #dynamic_title: true
 
 #cursor:
-  # Cursor style
-  #
-  # Values for `style`:
-  #   - ▇ Block
-  #   - _ Underline
-  #   - | Beam
-  #style: Block
+# Cursor style
+#
+# Values for `style`:
+#   - ▇ Block
+#   - _ Underline
+#   - | Beam
+#style: Block
 
-  # If this is `true`, the cursor will be rendered as a hollow box when the
-  # window is not focused.
-  #unfocused_hollow: true
+# If this is `true`, the cursor will be rendered as a hollow box when the
+# window is not focused.
+#unfocused_hollow: true
 
 # Live config reload (changes require restart)
 #live_config_reload: true
@@ -397,7 +491,6 @@ shell:
     - --login
     - -c
     - "tmux attach || tmux"
-
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
@@ -418,62 +511,62 @@ shell:
 #alt_send_esc: true
 
 #debug:
-  # Display the time it takes to redraw each frame.
-  #render_timer: false
+# Display the time it takes to redraw each frame.
+#render_timer: false
 
-  # Keep the log file after quitting Alacritty.
-  #persistent_logging: false
+# Keep the log file after quitting Alacritty.
+#persistent_logging: false
 
-  # Log level
-  #
-  # Values for `log_level`:
-  #   - None
-  #   - Error
-  #   - Warn
-  #   - Info
-  #   - Debug
-  #   - Trace
-  #log_level: Warn
+# Log level
+#
+# Values for `log_level`:
+#   - None
+#   - Error
+#   - Warn
+#   - Info
+#   - Debug
+#   - Trace
+#log_level: Warn
 
-  # Print all received window events.
-  #print_events: false
+# Print all received window events.
+#print_events: false
 
-  # Record all characters and escape sequences as test data.
-  #ref_test: false
+# Record all characters and escape sequences as test data.
+#ref_test: false
 
 #mouse:
-  # Click settings
-  #
-  # The `double_click` and `triple_click` settings control the time
-  # alacritty should wait for accepting multiple clicks as one double
-  # or triple click.
-  #double_click: { threshold: 300 }
-  #triple_click: { threshold: 300 }
+# Click settings
+#
+# The `double_click` and `triple_click` settings control the time
+# alacritty should wait for accepting multiple clicks as one double
+# or triple click.
+#double_click: { threshold: 300 }
+#triple_click: { threshold: 300 }
 
-  # If this is `true`, the cursor is temporarily hidden when typing.
-  #hide_when_typing: false
+# If this is `true`, the cursor is temporarily hidden when typing.
+#hide_when_typing: false
 
-  #url:
-    # URL launcher
-    #
-    # This program is executed when clicking on a text which is recognized as a URL.
-    # The URL is always added to the command as the last parameter.
-    #
-    # When set to `None`, URL launching will be disabled completely.
-    #
-    # Default:
-    #   - (macOS) open
-    #   - (Linux/BSD) xdg-open
-    #   - (Windows) explorer
-    #launcher:
-    #  program: xdg-open
-    #  args: []
+#url:
+# URL launcher
+#
+# This program is executed when clicking on a text which is recognized as a URL.
+# The URL is always added to the command as the last parameter.
+#
+# When set to `None`, URL launching will be disabled completely.
+#
+# Default:
+#   - (macOS) open
+#   - (Linux/BSD) xdg-open
+#   - (Windows) explorer
+#launcher:
+#  program: xdg-open
+#  args: []
 
-    # URL modifiers
-    #
-    # These are the modifiers that need to be held down for opening URLs when clicking
-    # on them. The available modifiers are documented in the key binding section.
-    #modifiers: None
+# URL modifiers
+#
+# These are the modifiers that need to be held down for opening URLs when clicking
+# on them. The available modifiers are documented in the key binding section.
+#modifiers: None
 
 # Mouse bindings
 #
@@ -604,39 +697,39 @@ shell:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # at once.
 #key_bindings:
-  # (Windows, Linux, and BSD only)
-  #- { key: V,        mods: Control|Shift, action: Paste            }
-  #- { key: C,        mods: Control|Shift, action: Copy             }
-  #- { key: Insert,   mods: Shift,         action: PasteSelection   }
-  #- { key: Key0,     mods: Control,       action: ResetFontSize    }
-  #- { key: Equals,   mods: Control,       action: IncreaseFontSize }
-  #- { key: Add,      mods: Control,       action: IncreaseFontSize }
-  #- { key: Subtract, mods: Control,       action: DecreaseFontSize }
-  #- { key: Minus,    mods: Control,       action: DecreaseFontSize }
+# (Windows, Linux, and BSD only)
+#- { key: V,        mods: Control|Shift, action: Paste            }
+#- { key: C,        mods: Control|Shift, action: Copy             }
+#- { key: Insert,   mods: Shift,         action: PasteSelection   }
+#- { key: Key0,     mods: Control,       action: ResetFontSize    }
+#- { key: Equals,   mods: Control,       action: IncreaseFontSize }
+#- { key: Add,      mods: Control,       action: IncreaseFontSize }
+#- { key: Subtract, mods: Control,       action: DecreaseFontSize }
+#- { key: Minus,    mods: Control,       action: DecreaseFontSize }
 
-  # (Windows only)
-  #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
+# (Windows only)
+#- { key: Return,   mods: Alt,           action: ToggleFullscreen }
 
-  # (macOS only)
-  #- { key: Key0,   mods: Command,         action: ResetFontSize    }
-  #- { key: Equals, mods: Command,         action: IncreaseFontSize }
-  #- { key: Add,    mods: Command,         action: IncreaseFontSize }
-  #- { key: Minus,  mods: Command,         action: DecreaseFontSize }
-  #- { key: K,      mods: Command,         action: ClearHistory     }
-  #- { key: K,      mods: Command,         chars: "\x0c"            }
-  #- { key: V,      mods: Command,         action: Paste            }
-  #- { key: C,      mods: Command,         action: Copy             }
-  #- { key: H,      mods: Command,         action: Hide             }
-  #- { key: M,      mods: Command,         action: Minimize         }
-  #- { key: Q,      mods: Command,         action: Quit             }
-  #- { key: W,      mods: Command,         action: Quit             }
-  #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
+# (macOS only)
+#- { key: Key0,   mods: Command,         action: ResetFontSize    }
+#- { key: Equals, mods: Command,         action: IncreaseFontSize }
+#- { key: Add,    mods: Command,         action: IncreaseFontSize }
+#- { key: Minus,  mods: Command,         action: DecreaseFontSize }
+#- { key: K,      mods: Command,         action: ClearHistory     }
+#- { key: K,      mods: Command,         chars: "\x0c"            }
+#- { key: V,      mods: Command,         action: Paste            }
+#- { key: C,      mods: Command,         action: Copy             }
+#- { key: H,      mods: Command,         action: Hide             }
+#- { key: M,      mods: Command,         action: Minimize         }
+#- { key: Q,      mods: Command,         action: Quit             }
+#- { key: W,      mods: Command,         action: Quit             }
+#- { key: F,      mods: Command|Control, action: ToggleFullscreen }
 
-  #- { key: Paste,                    action: Paste                            }
-  #- { key: Copy,                     action: Copy                             }
-  #- { key: L,         mods: Control, action: ClearLogNotice                   }
-  #- { key: L,         mods: Control, chars: "\x0c"                            }
-  #- { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
-  #- { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
-  #- { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
-  #- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
+#- { key: Paste,                    action: Paste                            }
+#- { key: Copy,                     action: Copy                             }
+#- { key: L,         mods: Control, action: ClearLogNotice                   }
+#- { key: L,         mods: Control, chars: "\x0c"                            }
+#- { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
+#- { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
+#- { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
+#- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }

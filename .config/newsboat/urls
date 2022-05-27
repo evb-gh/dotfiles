@@ -1,4 +1,6 @@
+https://github.com/gorhill/uBlock/releases.atom
 https://weekly.nixos.org/feeds/all.rss.xml
+https://www.benzworld.org/forums/w202-c36-amg-c43-amg.10/index.rss
 https://karl-voit.at/feeds/lazyblorg-all.atom_1.0.links-and-content.xml
 https://feeds.feedburner.com/mrmoneymustache
 https://devqa.io/feed.xml
@@ -17,9 +19,9 @@ https://www.phoronix.com/rss.php
 https://www.romanzolotarev.com/rss.xml
 https://candrews.integralblue.com/feed "Craig Andrews"
 https://blog.sapegin.me/atom.xml
-https://nitter.eu/Kira_Yarmysh/rss "@Kira_Yarmysh"
-https://nitter.eu/andreysitnik/rss "@andreysitnik"
-https://nitter.eu/ajlkn/rss "@ajlkn"
+https://tw.artemislena.eu/Kira_Yarmysh/rss "@Kira_Yarmysh"
+https://tw.artemislena.eu/andreysitnik/rss "@andreysitnik"
+https://tw.artemislena.eu/ajlkn/rss "@ajlkn"
 https://david.darn.es/feed.xml
 https://www.techbeamers.com/qa-interview/feed
 https://undeadly.org/cgi?action=rss
@@ -27,13 +29,14 @@ https://flak.tedunangst.com/rss
 https://github.com/hlissner/doom-emacs/commits/develop.atom "doom commits"
 https://hnrss.org/newest?points=100
 https://cryptsus.com/blog/feed.rss
-https://www.reddit.com/r/UsabilityPorn.rss
 https://emacs.stackexchange.com/feeds
 https://stackoverflow.com/feeds/tag/javascript
 https://codereview.stackexchange.com/feeds/tag/javascript
 https://stackoverflow.com/feeds/tag/reactjs
 https://raspberrypi.stackexchange.com/feeds
 https://codereview.stackexchange.com/feeds/tag/c
+https://www.reddit.com/r/UsabilityPorn.rss
 https://www.reddit.com/r/gonewild.rss
 https://www.reddit.com/r/NSFW_HTML5.rss
 https://www.reddit.com/r/NSFW_GIF.rss
+https://www.reddit.com/r/kettlebell.rss
